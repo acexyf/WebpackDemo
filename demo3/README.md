@@ -1,0 +1,5 @@
+```
+npm i webpack
+
+webpack
+```
