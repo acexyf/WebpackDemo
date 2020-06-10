@@ -2,34 +2,33 @@ import './index.css'
 import './left.scss'
 import './right.less'
 
-
 {
     
     let a = 10;
     let [a1, b, c] = [1, 2, 3];
-    console.log(`index`)
-
-    let arrayLike = {
-        '0': 'a',
-        '1': 'b',
-        '2': 'c',
-        length: 3
-    };
-
-
-    let arr1 = Array.from(arrayLike);
-
-    ['a', 'b', 'c'].fill(7)
-
-    [1, 2, 3, 4, 5].copyWithin(0, 3, 4)
-
-
-    for (let index of ['a', 'b'].keys()) {
-        console.log(index);
+    console.log(`
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+    `)
+    for (let codePoint of 'foo') {
+        console.log(codePoint)
     }
-
-
-    [1, 2, 3].includes(2)
+    function Point(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+    const p = new Point();
+    class Points {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+        toString() {
+          return '(' + this.x + ', ' + this.y + ')';
+        }
+    }
 }
 
 

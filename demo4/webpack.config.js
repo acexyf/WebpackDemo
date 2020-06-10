@@ -39,6 +39,20 @@ module.exports = {
             },{
                 loader: 'less-loader'
             }]
+        },{
+            test: /\.js/,
+            use: {
+                loader: 'babel-loader'
+            }
+        },{
+            test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2)$/,
+            use: {
+                loader: 'url-loader',
+                options: {
+                    //10k
+                    limit: 10240,
+                }
+            }
         }]
     }
 }
