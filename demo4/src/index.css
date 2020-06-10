@@ -1,0 +1,7 @@
+@import './head.css';
+@import './foot.css';
+
+.wrap {
+    display: flex;
+    background: #999;
+}
