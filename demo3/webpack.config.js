@@ -3,7 +3,7 @@
 const path =require('path')
 const webpack = require('webpack')
 module.exports = {
-    mode: 'development',
+    mode: 'none',
     entry: {
         home: './src/home.js',
         list: './src/list.js',
@@ -13,4 +13,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
     },
+    plugins: [
+    ]
 }

@@ -1,5 +1,5 @@
 ```
-npm i webpack
+npm i 
 
 webpack
 ```
