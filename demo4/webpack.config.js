@@ -60,8 +60,14 @@ module.exports = {
                     //10k
                     limit: 10240,
                     name: '[name].[hash:8].[ext]',
-                    outputPath: 'imgs/'
+                    outputPath: 'imgs/',
+                    esModule: false
                 }
+            }
+        }, {
+            test: /\.(htm|html)$/,
+            use: {
+                loader: 'html-withimg-loader'
             }
         }]
     }

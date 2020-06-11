@@ -2,6 +2,12 @@ import './index.css'
 import './left.scss'
 import './right.less'
 
+var img=new Image(); 
+img.src=require('./bg.png')
+img.onload = function(){
+
+}
+
 {
     
     let a = 10;
