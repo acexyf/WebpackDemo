@@ -1,0 +1,16 @@
+{
+  "name": "demo3",
+  "version": "1.0.0",
+  "description": "```\r npm i",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
