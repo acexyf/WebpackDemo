@@ -1,3 +1,6 @@
 import './index.less'
 
-console.log('index')
+// import $ from 'jquery'
+$('.box').html('box')
+
+console.log(math.add(2,5))

@@ -3,13 +3,16 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].[hash:8].js'
     },
     module: {
         rules: [
@@ -19,6 +22,8 @@ module.exports = {
                     loader: MiniCssExtractPlugin.loader
                 },{
                     loader: 'css-loader'
+                },{
+                    loader: 'postcss-loader'
                 },{
                     loader: 'less-loader'
                 }]
@@ -37,7 +42,21 @@ module.exports = {
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-        })
+            filename: "[name].[hash:8].css",
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
+        new OptimizeCSSAssetsPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'public/js/*.js',
+                    to: path.resolve(__dirname, 'dist', 'js'),
+                    flatten: true,
+                }
+            ]
+        }),
     ]
 }
