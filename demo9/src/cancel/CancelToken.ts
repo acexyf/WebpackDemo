@@ -1,6 +1,6 @@
 'use strict';
 
-var Cancel = require('./Cancel');
+import Cancel from './Cancel';
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -54,4 +54,4 @@ CancelToken.source = function source() {
   };
 };
 
-module.exports = CancelToken;
+export default CancelToken;

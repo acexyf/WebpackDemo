@@ -10,7 +10,7 @@
  * @param {string} [instead] The alternate method to use if applicable
  * @param {string} [docs] The documentation URL to get further details
  */
-module.exports = function deprecatedMethod(method, instead, docs) {
+export default function deprecatedMethod(method, instead, docs) {
   try {
     console.warn(
       'DEPRECATED method `' + method + '`.' +

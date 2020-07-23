@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('../utils');
+import utils from '../utils';
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -10,7 +10,7 @@ var utils = require('../utils');
  * @param {Object} config2
  * @returns {Object} New object resulting from merging config2 to config1
  */
-module.exports = function mergeConfig(config1, config2) {
+export default function mergeConfig(config1, config2) {
   // eslint-disable-next-line no-param-reassign
   config2 = config2 || {};
   var config = {};

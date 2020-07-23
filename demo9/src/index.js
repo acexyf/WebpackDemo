@@ -1,7 +1,7 @@
 'use strict';
 
 var utils = require('./utils');
-var bind = require('./helpers/bind');
+var bind = require('./helpers/bind.ts');
 var Axios = require('./core/Axios');
 var mergeConfig = require('./core/mergeConfig');
 var defaults = require('./defaults');

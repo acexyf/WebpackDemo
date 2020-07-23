@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('./../utils');
+import utils from './../utils';
 
 function InterceptorManager() {
   this.handlers = [];
@@ -49,4 +49,4 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
   });
 };
 
-module.exports = InterceptorManager;
+export default InterceptorManager;

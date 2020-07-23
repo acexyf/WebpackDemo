@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('./../utils');
+import utils from './../utils';
 
 /**
  * Transform the data for a request or a response
@@ -10,7 +10,7 @@ var utils = require('./../utils');
  * @param {Array|Function} fns A single function or Array of functions
  * @returns {*} The resulting transformed data
  */
-module.exports = function transformData(data, headers, fns) {
+export default function transformData(data, headers, fns) {
   /*eslint no-param-reassign:0*/
   utils.forEach(fns, function transform(fn) {
     data = fn(data, headers);

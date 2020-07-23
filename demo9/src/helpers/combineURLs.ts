@@ -7,7 +7,7 @@
  * @param {string} relativeURL The relative URL
  * @returns {string} The combined URL
  */
-module.exports = function combineURLs(baseURL, relativeURL) {
+export default function combineURLs(baseURL, relativeURL) {
   return relativeURL
     ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
     : baseURL;

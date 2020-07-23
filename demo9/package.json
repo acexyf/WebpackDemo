@@ -10,10 +10,16 @@
     "@babel/core": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
-    "babel-loader": "^8.1.0"
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.5.0",
+    "eslint-loader": "^4.0.2",
+    "ts-loader": "^8.0.1",
+    "typescript": "^3.9.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "optimize": "webpack --config webpack.config.optimize.js"
   },
   "author": "",
   "license": "ISC"

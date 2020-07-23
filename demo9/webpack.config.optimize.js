@@ -1,6 +1,5 @@
 const path = require("path");
-//没有优化的config
-
+//优化后的config
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
@@ -12,9 +11,13 @@ module.exports = {
     rules: [
       {
         test: /\.js/,
+        include: path.resolve(__dirname, 'src'),
         use: [
           {
             loader: "babel-loader",
+            options: {
+                cacheDirectory: true,
+            }
           },
           {
             loader: "eslint-loader",
@@ -23,6 +26,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
+        include: path.resolve(__dirname, 'src'),
         loader: "ts-loader",
       },
     ],

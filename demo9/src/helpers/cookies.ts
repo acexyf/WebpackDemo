@@ -1,8 +1,8 @@
 'use strict';
 
-var utils = require('./../utils');
+import utils from './../utils';
 
-module.exports = (
+export default (
   utils.isStandardBrowserEnv() ?
 
   // Standard browser envs support document.cookie
@@ -13,7 +13,7 @@ module.exports = (
           cookie.push(name + '=' + encodeURIComponent(value));
 
           if (utils.isNumber(expires)) {
-            cookie.push('expires=' + new Date(expires).toGMTString());
+            cookie.push('expires=' + new Date(expires).toUTCString());
           }
 
           if (utils.isString(path)) {

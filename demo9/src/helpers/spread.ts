@@ -20,7 +20,7 @@
  * @param {Function} callback
  * @returns {Function}
  */
-module.exports = function spread(callback) {
+export default function spread(callback) {
   return function wrap(arr) {
     return callback.apply(null, arr);
   };

@@ -1,9 +1,9 @@
 'use strict';
 
-var utils = require('./../utils');
-var transformData = require('./transformData');
-var isCancel = require('../cancel/isCancel');
-var defaults = require('../defaults');
+import utils from './../utils';
+import transformData from './transformData';
+import isCancel from '../cancel/isCancel';
+import defaults from '../defaults';
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -20,7 +20,7 @@ function throwIfCancellationRequested(config) {
  * @param {object} config The config that is to be used for the request
  * @returns {Promise} The Promise to be fulfilled
  */
-module.exports = function dispatchRequest(config) {
+export default function dispatchRequest(config) {
   throwIfCancellationRequested(config);
 
   // Ensure headers exist

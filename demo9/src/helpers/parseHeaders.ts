@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('./../utils');
+import utils  from './../utils';
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -24,7 +24,7 @@ var ignoreDuplicateOf = [
  * @param {String} headers Headers needing to be parsed
  * @returns {Object} Headers parsed into an object
  */
-module.exports = function parseHeaders(headers) {
+export default function parseHeaders(headers) {
   var parsed = {};
   var key;
   var val;

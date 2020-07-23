@@ -1,10 +1,10 @@
 'use strict';
 
-var utils = require('./../utils');
-var buildURL = require('../helpers/buildURL');
-var InterceptorManager = require('./InterceptorManager');
-var dispatchRequest = require('./dispatchRequest');
-var mergeConfig = require('./mergeConfig');
+import utils from './../utils';
+import buildURL from'../helpers/buildURL';
+import InterceptorManager  from './InterceptorManager';
+import dispatchRequest  from './dispatchRequest';
+import mergeConfig  from './mergeConfig';
 
 /**
  * Create a new instance of Axios
@@ -91,4 +91,4 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   };
 });
 
-module.exports = Axios;
+export default Axios;

@@ -1,6 +1,6 @@
 'use strict';
 
-var createError = require('./createError');
+import createError from './createError';
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -9,7 +9,7 @@ var createError = require('./createError');
  * @param {Function} reject A function that rejects the promise.
  * @param {object} response The response.
  */
-module.exports = function settle(resolve, reject, response) {
+export default function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus;
   if (!response.status || !validateStatus || validateStatus(response.status)) {
     resolve(response);

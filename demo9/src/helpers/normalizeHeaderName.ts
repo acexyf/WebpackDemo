@@ -1,8 +1,8 @@
 'use strict';
 
-var utils = require('../utils');
+import utils from '../utils';
 
-module.exports = function normalizeHeaderName(headers, normalizedName) {
+export default function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
     if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
       headers[normalizedName] = value;

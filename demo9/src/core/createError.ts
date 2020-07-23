@@ -1,6 +1,6 @@
 'use strict';
 
-var enhanceError = require('./enhanceError');
+import enhanceError from './enhanceError';
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -12,7 +12,7 @@ var enhanceError = require('./enhanceError');
  * @param {Object} [response] The response.
  * @returns {Error} The created error.
  */
-module.exports = function createError(message, config, code, request, response) {
+export default function createError(message, config, code, request, response?) {
   var error = new Error(message);
   return enhanceError(error, config, code, request, response);
 };

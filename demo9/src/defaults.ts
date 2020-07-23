@@ -1,8 +1,8 @@
 'use strict';
 
-var utils = require('./utils');
-var normalizeHeaderName = require('./helpers/normalizeHeaderName');
-
+import utils from './utils';
+import normalizeHeaderName from './helpers/normalizeHeaderName';
+import xhr from './adapters/xhr'
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
 };
@@ -14,12 +14,11 @@ function setContentTypeIfUnset(headers, value) {
 }
 
 function getDefaultAdapter() {
-  var adapter;
-  adapter = require('./adapters/xhr');
+  var adapter = xhr
   return adapter;
 }
 
-var defaults = {
+var defaults:any = {
   adapter: getDefaultAdapter(),
 
   transformRequest: [function transformRequest(data, headers) {
@@ -89,4 +88,4 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
 });
 
-module.exports = defaults;
+export default defaults;

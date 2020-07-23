@@ -1,8 +1,8 @@
 'use strict';
 
-var utils = require('./../utils');
+import utils from './../utils';
 
-module.exports = (
+export default (
   utils.isStandardBrowserEnv() ?
 
   // Standard browser envs have full support of the APIs needed to test

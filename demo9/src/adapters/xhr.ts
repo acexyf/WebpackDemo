@@ -1,15 +1,15 @@
 'use strict';
 
-var utils = require('./../utils');
-var settle = require('./../core/settle');
-var cookies = require('./../helpers/cookies');
-var buildURL = require('./../helpers/buildURL');
-var buildFullPath = require('../core/buildFullPath');
-var parseHeaders = require('./../helpers/parseHeaders');
-var isURLSameOrigin = require('./../helpers/isURLSameOrigin');
-var createError = require('../core/createError');
+import utils from './../utils';
+import settle from './../core/settle';
+import cookies from './../helpers/cookies';
+import buildURL from './../helpers/buildURL';
+import buildFullPath from '../core/buildFullPath';
+import parseHeaders from './../helpers/parseHeaders';
+import isURLSameOrigin from './../helpers/isURLSameOrigin';
+import createError from '../core/createError';
 
-module.exports = function xhrAdapter(config) {
+export default function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
     var requestData = config.data;
     var requestHeaders = config.headers;
