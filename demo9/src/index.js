@@ -5,7 +5,8 @@ var bind = require('./helpers/bind.ts');
 var Axios = require('./core/Axios');
 var mergeConfig = require('./core/mergeConfig');
 var defaults = require('./defaults');
-
+var vue = require('vue')
+// var moemnt = require('moment')
 /**
  * Create an instance of Axios
  *

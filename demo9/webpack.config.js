@@ -1,6 +1,7 @@
 const path = require("path");
 //没有优化的config
-
+//Time: 3452ms //第一次
+//Time: 2246ms //第二次
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
@@ -12,6 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.js/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
@@ -28,6 +30,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js",".ts", ".json"]
-  }
+    extensions: [".js", ".ts", ".json"],
+  },
 };
