@@ -31,6 +31,7 @@ module.exports = {
     ],
   },
   resolve: {
+    mainFields: ['main'],
     extensions: [".ts", ".js"],
     alias: {
       vue: path.resolve(
