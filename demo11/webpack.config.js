@@ -1,8 +1,8 @@
 const path = require("path");
-//优化后的config
-//Time: 3455ms 第一次
-//Time: 2437ms 第二次
-module.exports = {
+//没有优化的config
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+module.exports = smp.wrap({
   mode: "production",
   entry: "./src/index.js",
   output: {
@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.js/,
-        include: path.resolve(__dirname, "src"),
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
@@ -25,7 +25,6 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        include: path.resolve(__dirname, "src"),
         use: [
           {
             loader: "babel-loader",
@@ -41,19 +40,6 @@ module.exports = {
     ],
   },
   resolve: {
-    mainFields: ["main"],
-    extensions: [".ts", ".js"],
-    alias: {
-      vue: path.resolve(
-        __dirname,
-        "./node_modules/vue/dist/vue.runtime.common.js"
-      ),
-    },
-    //解析模块时应该搜索的目录
-    modules: [
-      path.resolve(__dirname, "src"),
-      path.resolve(__dirname, "node_modules"),
-      "node_modules",
-    ],
+    extensions: [".js", ".ts", ".json"],
   },
-};
+});

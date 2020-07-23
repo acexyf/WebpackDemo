@@ -1,7 +1,7 @@
 const path = require("path");
 //没有优化的config
-//Time: 3452ms //第一次
-//Time: 2246ms //第二次
+//Time: 3819ms //第一次
+//Time: 2661ms //第二次
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
@@ -25,7 +25,17 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "eslint-loader",
+          },
+          {
+            loader: "ts-loader",
+          },
+        ],
       },
     ],
   },
