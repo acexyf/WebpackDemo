@@ -1,14 +1,18 @@
 const path = require("path");
 const webpack = require("webpack");
+
+//添加noParse       2609ms
+//没有添加noParse   2933ms
+
 module.exports = {
-  devtool: "cheap-source-map",
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
   },
   module: {
+    // noParse: /jquery|lodash|jquery-ui/,
     rules: [
       {
         test: /\.js/,
@@ -20,9 +24,5 @@ module.exports = {
         ],
       },
     ],
-  },
-  plugins: [],
-  optimization: {
-    minimize: false,
   },
 };
