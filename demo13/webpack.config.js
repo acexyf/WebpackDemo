@@ -1,18 +1,18 @@
 const path = require("path");
 const webpack = require("webpack");
 
-//添加noParse       2609ms
-//没有添加noParse   2933ms
+//添加noParse       624ms
+//没有添加noParse   835ms
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
   },
   module: {
-    // noParse: /jquery|lodash|jquery-ui/,
+    noParse: /jquery|lodash|jquery-ui/,
     rules: [
       {
         test: /\.js/,
