@@ -51,7 +51,6 @@ module.exports = {
     },
     //解析模块时应该搜索的目录
     modules: [
-      path.resolve(__dirname, "src"),
       path.resolve(__dirname, "node_modules"),
       "node_modules",
     ],

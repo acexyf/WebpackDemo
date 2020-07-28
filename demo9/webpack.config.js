@@ -1,7 +1,7 @@
 const path = require("path");
 //没有优化的config
 //Time: 3819ms //第一次
-//Time: 2661ms //第二次
+//Time: 2588ms //第二次
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
