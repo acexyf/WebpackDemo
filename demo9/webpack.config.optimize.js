@@ -1,10 +1,10 @@
 const path = require("path");
 //优化后的config
-//Time: 3455ms 第一次
-//Time: 2437ms 第二次
+//Time: 2455ms 第一次
+//Time: 2337ms 第二次
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
@@ -51,6 +51,7 @@ module.exports = {
     },
     //解析模块时应该搜索的目录
     modules: [
+      path.resolve(__dirname, "src"),
       path.resolve(__dirname, "node_modules"),
       "node_modules",
     ],

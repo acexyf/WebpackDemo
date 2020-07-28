@@ -1,11 +1,10 @@
 'use strict';
 
-var utils = require('./utils');
-var bind = require('./helpers/bind.ts');
-var Axios = require('./core/Axios');
-var mergeConfig = require('./core/mergeConfig');
-var defaults = require('./defaults');
-var vue = require('vue')
+import utils from 'utils';
+import bind from 'helpers/bind';
+import Axios from 'core/Axios';
+import mergeConfig from 'core/mergeConfig';
+import defaults from './defaults';
 // var moemnt = require('moment')
 /**
  * Create an instance of Axios
@@ -21,13 +20,13 @@ function createInstance(defaultConfig) {
   utils.extend(instance, Axios.prototype, context);
 
   // Copy context to instance
-  utils.extend(instance, context);
+  utils.extend(instance, context, null);
 
   return instance;
 }
 
 // Create the default instance to be exported
-var axios = createInstance(defaults);
+var axios:any = createInstance(defaults);
 
 // Expose Axios class to allow class inheritance
 axios.Axios = Axios;
@@ -38,14 +37,19 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = require('./cancel/Cancel');
-axios.CancelToken = require('./cancel/CancelToken');
-axios.isCancel = require('./cancel/isCancel');
+import Cancel from 'cancel/Cancel'
+import CancelToken from 'cancel/CancelToken'
+import isCancel from 'cancel/isCancel'
+axios.Cancel = Cancel;
+axios.CancelToken = CancelToken;
+axios.isCancel = isCancel;
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = require('./helpers/spread');
+import spread from 'helpers/spread'
+axios.spread = spread;
 
 
+export default axios
