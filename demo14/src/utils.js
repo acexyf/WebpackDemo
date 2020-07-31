@@ -324,7 +324,6 @@ module.exports = {
   isStandardBrowserEnv: isStandardBrowserEnv,
   forEach: forEach,
   merge: merge,
-  extend: extend,
   trim: trim,
   stripBOM: stripBOM
 };

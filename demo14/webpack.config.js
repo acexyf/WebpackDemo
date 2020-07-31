@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
-  devtool: "source-map",
+  devtool: "none",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
@@ -15,9 +15,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './public/index.html',
-        filename: 'home.html',
-        chunks: ['home','common']
+      template: "./public/index.html",
+      filename: "home.html",
+      chunks: ["home", "common"],
     }),
     new CleanWebpackPlugin(),
   ],
@@ -34,16 +34,31 @@ module.exports = {
       },
     ],
   },
+  resolve:{
+    alias: {
+        'axios$': 'axios/dist/axios.min.js'
+    }
+  },
   optimization: {
     splitChunks: {
       chunks: "all",
       minChunks: 1,
       cacheGroups: {
+        base: {
+          name: "base",
+        //   test: /[\\/]node_modules[\\/]/,
+          test: (module) => {
+            return /axios|dayjs/.test(module.context);
+          },
+          chunks: "all",
+          priority: 10,
+          minChunks: 2,
+        },
         common: {
+          chunks: "all",
           name: "common",
-          chunks: "initial",
-          priority: 1,
-          minChunks: 1,
+          priority: 2,
+          minChunks: 2,
         },
       },
     },

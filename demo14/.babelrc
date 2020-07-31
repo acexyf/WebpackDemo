@@ -7,5 +7,5 @@
       }
     ]
   ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": []
 }
