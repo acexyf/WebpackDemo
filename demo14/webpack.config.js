@@ -19,7 +19,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "home.html",
-      chunks: ["home", "base", "common"],
+      chunks: ["vue","vendors","common","async", "home" ],
     }),
     new CleanWebpackPlugin(),
   ],
@@ -79,6 +79,12 @@ module.exports = {
           test: /[\\/]src[\\/]/,
           priority: 5,
           name: 'common'
+        },
+        async: {
+          chunks: 'async',
+          test: /[\\/]src[\\/]/,
+          priority: 6,
+          name: 'async'
         }
       }
     }

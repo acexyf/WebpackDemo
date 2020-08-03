@@ -12,5 +12,5 @@ console.log(utils.trim('detail'))
 
 
 setTimeout(()=>{
-  require('./async_detail')
+  require('./async')
 }, 2000)
