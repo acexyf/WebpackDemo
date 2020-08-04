@@ -12,6 +12,7 @@ console.log(dayjs())
 console.log(utils.trim('home'))
 
 setTimeout(()=>{
-    require('./async_home')
+    let async_a = require('./async_a')
+    async_a()
 }, 2000)
 

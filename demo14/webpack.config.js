@@ -79,7 +79,7 @@ module.exports = {
           test: /[\\/]src[\\/]/,
           priority: 5,
           name: 'common'
-        }
+        },
       }
     }
   }
