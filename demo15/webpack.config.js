@@ -15,9 +15,9 @@ module.exports = {
     open: false,
     contentBase: [path.join(__dirname, "public")],
   },
-//   externals: {
-//     jquery: "jQuery",
-//   },
+  externals: {
+    jquery: "jQuery",
+  },
   plugins: [
     new HtmlWebpackPlugin({
         template: './public/index.html',
