@@ -1,3 +1,4 @@
 */node_modules
 */dist
 */public/vendor
+*/package-lock.json
