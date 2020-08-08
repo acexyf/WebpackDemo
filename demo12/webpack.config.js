@@ -2,9 +2,12 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
+const {
+  CleanWebpackPlugin
+} = require("clean-webpack-plugin");
 module.exports = {
   devtool: "cheap-source-map",
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -24,19 +27,22 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "index.html",
     }),
   ],
   optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserJSPlugin({
-        cache: true,
-        parallel: true, 
-        sourceMap: false,
-      }),
-    ],
+    usedExports: true,
+    sideEffects: true,
+    // minimize: true,
+    // minimizer: [
+    //   new TerserJSPlugin({
+    //     cache: true,
+    //     parallel: true, 
+    //     sourceMap: false,
+    //   }),
+    // ],
   },
 };
