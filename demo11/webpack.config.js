@@ -2,8 +2,9 @@ const path = require("path");
 //没有优化的config
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
+
 module.exports = smp.wrap({
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -14,8 +15,7 @@ module.exports = smp.wrap({
       {
         test: /\.js/,
         exclude: /node_modules/,
-        use: [
-          {
+        use: [{
             loader: "babel-loader",
           },
           {
@@ -25,8 +25,7 @@ module.exports = smp.wrap({
       },
       {
         test: /\.tsx?$/,
-        use: [
-          {
+        use: [{
             loader: "babel-loader",
           },
           {
@@ -39,6 +38,8 @@ module.exports = smp.wrap({
       },
     ],
   },
+  plugins: [
+  ],
   resolve: {
     extensions: [".js", ".ts", ".json"],
   },

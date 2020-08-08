@@ -1,12 +1,14 @@
 const path = require("path");
-//没有优化的config
+//优化的config
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
-var HappyPack = require("happypack");
 const happypack = require("happypack");
-var happyThreadPool = HappyPack.ThreadPool({ size: 5 });
+
+var happyThreadPool = happypack.ThreadPool({
+  size: 5
+});
 module.exports = smp.wrap({
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -29,8 +31,7 @@ module.exports = smp.wrap({
     new happypack({
       id: "js",
       threadPool: happyThreadPool,
-      loaders: [
-        {
+      loaders: [{
           loader: "babel-loader",
         },
         {
@@ -38,21 +39,7 @@ module.exports = smp.wrap({
         },
       ],
     }),
-    new happypack({
-      id: "ts",
-      threadPool: happyThreadPool,
-      loaders: [
-        {
-          loader: "babel-loader",
-        },
-        {
-          loader: "eslint-loader",
-        },
-        {
-          loader: "ts-loader",
-        },
-      ],
-    }),
+
   ],
   resolve: {
     extensions: [".js", ".ts", ".json"],
