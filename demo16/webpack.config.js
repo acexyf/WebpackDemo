@@ -17,19 +17,19 @@ module.exports = {
     filename: "index.js",
   },
   module: {
-    rules: [
-      {
-        test: /\.js/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              cacheDirectory: true
-            }
-          },
-        ],
-      },
-    ],
+    rules: [{
+      test: /\.js/,
+      exclude: /node_modules/,
+      use: [{
+          loader: 'cache-loader'
+        },
+        {
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true
+          }
+        },
+      ],
+    }, ],
   },
 };
