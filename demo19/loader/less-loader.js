@@ -1,13 +1,32 @@
 const less = require("less");
-const utils = require("loader-utils");
+const { getOptions, stringifyRequest, parseQuery } = require("loader-utils");
+const { validate } = require("schema-utils");
+
+const schema = {
+  type: "object",
+  properties: {
+    option: {
+      type: "boolean",
+    },
+  },
+  additionalProperties: false,
+};
 
 function loader(source) {
-  const options = utils.getOptions(this);
+  const options = getOptions(this);
 
   const callback = this.async();
 
+  const string_result = stringifyRequest(this, "./test.js");
+  const configuration = { name: "loader" };
+
+  console.log(
+    parseQuery("?name=kev&age=14"),
+    "string_result",
+    options,
+  );
+
   let css = "";
-  console.log(options, "options");
 
   less.render(source, function (err, c) {
     // 这是less插件提供的解析方法
