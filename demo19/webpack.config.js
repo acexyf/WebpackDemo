@@ -23,7 +23,7 @@ module.exports = {
             loader: path.resolve(__dirname, "loader", "less-loader"),
             options: {
               cache: true,
-              key: 'qweasd'
+              key: "qweasd",
             },
           },
         ],
@@ -37,6 +37,9 @@ module.exports = {
               cacheDirectory: true,
             },
           },
+          {
+            loader: "cleanlog-loader",
+          },
         ],
       },
     ],
@@ -47,4 +50,7 @@ module.exports = {
       filename: "index.html",
     }),
   ],
+  resolveLoader:{
+    modules: [path.resolve(__dirname, 'loader'), 'node_modules']
+  }
 };
