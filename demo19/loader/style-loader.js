@@ -1,5 +1,5 @@
 
-function loader(source) {
+function loader(source, map) {
   let style = `
     let style = document.createElement('style');
     style.innerHTML = ${JSON.stringify(source)}; // 将css文件的内容字符串化

@@ -31,8 +31,10 @@ function loader(source) {
   less.render(source, function (err, c) {
     // 这是less插件提供的解析方法
     let { css } = c;
-    callback(null, css);
+    callback(null, css, 'maps');
   });
+
+
   //   return css;
 }
 module.exports = loader;
