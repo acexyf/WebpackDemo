@@ -26,10 +26,11 @@ function loader(source) {
   //     options,
   //   );
 
-  console.log(this.sourceMap, "sourceMap");
+//   console.log(this.sourceMap, "sourceMap");
+//   console.log(this.context, "context");
+//   console.log(this.resource, "resource");
 
-  console.log(this.context, "context");
-  console.log(this.resource, "resource");
+//   console.log(options, this.query, 'query')
 
   less.render(source, { sourceMap: {} }, function (err, c) {
     // 这是less插件提供的解析方法

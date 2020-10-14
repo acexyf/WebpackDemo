@@ -15,33 +15,23 @@ module.exports = {
         test: /\.less/,
         use: [
           {
-            loader: './loader/style-loader.js',
+            loader: "./loader/style-loader.js",
             options: {
               cache: true,
             },
           },
           {
             loader: path.resolve(__dirname, "loader", "less-loader"),
-            options: {
-              cache: true,
-              key: "qweasd",
-            },
+            // options: {
+            //   cache: true,
+            //   key: "qweasd",
+            // },
           },
         ],
       },
       {
         test: /\.js/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              cacheDirectory: true,
-            },
-          },
-          {
-            loader: "cleanlog-loader",
-          },
-        ],
+        use: ["babel-loader", "cleanlog-loader?limt=1024&name=[hash:8].[ext]&option=true"],
       },
     ],
   },
@@ -51,7 +41,7 @@ module.exports = {
       filename: "index.html",
     }),
   ],
-  resolveLoader:{
-    modules: [path.resolve(__dirname, 'loader'), 'node_modules']
-  }
+  resolveLoader: {
+    modules: [path.resolve(__dirname, "loader"), "node_modules"],
+  },
 };

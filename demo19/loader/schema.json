@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+      "option": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
