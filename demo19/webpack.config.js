@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
+  devtool: "source-map",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -14,7 +15,7 @@ module.exports = {
         test: /\.less/,
         use: [
           {
-            loader: path.resolve(__dirname, "loader", "style-loader"),
+            loader: './loader/style-loader.js',
             options: {
               cache: true,
             },

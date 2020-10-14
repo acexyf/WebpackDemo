@@ -20,20 +20,22 @@ function loader(source) {
   const string_result = stringifyRequest(this, "./test.js");
   const configuration = { name: "loader" };
 
-  console.log(
-    parseQuery("?name=kev&age=14"),
-    "string_result",
-    options,
-  );
+  //   console.log(
+  //     parseQuery("?name=kev&age=14"),
+  //     "string_result",
+  //     options,
+  //   );
 
-  let css = "";
+  console.log(this.sourceMap, "sourceMap");
 
-  less.render(source, function (err, c) {
+  console.log(this.context, "context");
+  console.log(this.resource, "resource");
+
+  less.render(source, { sourceMap: {} }, function (err, c) {
     // 这是less插件提供的解析方法
-    let { css } = c;
-    callback(null, css, 'maps');
+    let { css, map } = c;
+    callback(null, css, map);
   });
-
 
   //   return css;
 }
