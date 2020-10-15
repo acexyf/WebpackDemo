@@ -4,6 +4,9 @@ const { getOptions } = require("loader-utils");
 const { validate } = require("schema-utils");
 
 module.exports = function (source) {
+  this.cacheable && this.cacheable(true);
+
+
   const options = getOptions(this);
   const schema = {
     type: "object",
