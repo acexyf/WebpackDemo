@@ -25,9 +25,14 @@ module.exports = function (source) {
   }
   console.log(params, options, "queryssss");
 
-  const configuration = { name: "cleanlog-loader" };
+  const configuration = { name: "cleanlog-loader", baseDataPath: "options" };
 
   validate(schema, options, configuration);
+  console.log(this.cacheable, "cacheable");
+
+  if (this.cacheable) {
+    this.cacheable(true);
+  }
 
   let result = source.replace(/console\.log\(.*\);?\n?/g, "");
   //   console.log(result, "result");

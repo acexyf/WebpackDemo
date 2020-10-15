@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
+  watch: true,
   module: {
     rules: [
       {
@@ -31,7 +32,11 @@ module.exports = {
       },
       {
         test: /\.js/,
-        use: ["babel-loader", "cleanlog-loader?limt=1024&name=[hash:8].[ext]&option=true"],
+        use: [
+          "babel-loader",
+          "banner-loader?filename=banner1",
+          "cleanlog-loader?limt=1024&name=[hash:8].[ext]&option=true",
+        ],
       },
     ],
   },

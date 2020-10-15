@@ -1,9 +1,19 @@
 {
     "type": "object",
     "properties": {
-      "option": {
-        "type": "boolean"
-      }
+        "option": {
+            "description": "options",
+            "type": "boolean"
+        },
+        "limt": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        }
     },
-    "additionalProperties": false
-  }
+    "additionalProperties": true
+}
