@@ -22,8 +22,6 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html",
     }),
-    new MyPlugin({
-        key: 'qwe'
-    })
+    new MyPlugin({ title: 'MyPlugin' })
   ],
 };

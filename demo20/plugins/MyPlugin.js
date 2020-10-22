@@ -1,6 +1,7 @@
 class MyPlugin {
   constructor(options) {
     console.log("Plugin被创建了");
+    console.log(options, 'options');
   }
   apply(compiler) {
     // compiler.plugin("compilation", (compilation) => {
