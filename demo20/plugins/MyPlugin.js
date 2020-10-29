@@ -7,9 +7,10 @@ class MyPlugin {
     // compiler.plugin("compilation", (compilation) => {
     //   console.log("compilation");
     // });
-    // compiler.hooks.done.tap("MyPlugin", (stats) => {
-    //   console.log("done");
-    // });
+    compiler.hooks.emit.tap("MyPlugin", (compilation) => {
+      console.log("emit");
+      console.log(compilation.assets, 'assets')
+    });
 
     // compiler.plugin('emit', (compilation, callback)=>{
     //   console.log('生成资源到 output 目录之前。')
